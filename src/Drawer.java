@@ -51,4 +51,7 @@ public class Drawer extends JFrame{
         setVisible(true);
         repaint();
     }
+    public void paintLine(Graphics g, R2Point task, R2Point task2){
+        g.drawLine((int)task.x, (int)task2.x, (int)task.y, (int)task2.y);
+    }
 }

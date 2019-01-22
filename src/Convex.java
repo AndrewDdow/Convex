@@ -1,7 +1,11 @@
 
+import java.awt.Graphics;
+
+
 public class Convex {
     private Figure figure;
     private R2Point task;
+    private R2Point task2;
     private Drawer drawer = new Drawer();
     public Convex() {
         figure = new Void();
@@ -25,7 +29,8 @@ public class Convex {
     public double result() {
         return figure.result();
     }
-    public void task(R2Point task) {
+    public void task(R2Point task, R2Point task2) {
         this.task = task;
+        this.task2 = task2;
     }
 }
