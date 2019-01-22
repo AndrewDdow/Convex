@@ -19,7 +19,7 @@ public class Point implements Figure {
         return 0;
     }
     @Override public double result() {
-        return Math.pow(R2Point.distance(p, task), 2);
+        return R2Point.distance(p, task);
     }
     @Override public ArrayList<R2Point[]> task() {
         return null;

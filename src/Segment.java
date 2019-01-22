@@ -22,7 +22,7 @@ public class Segment implements Figure {
         return 0;
     }
     @Override public double result() {
-        return Math.pow(R2Point.distance(task, p), 2) + Math.pow(R2Point.distance(task, q), 2);
+        return R2Point.distance(task, p) + R2Point.distance(task, q);
     }
     @Override public ArrayList<R2Point[]> task() {
         return null;

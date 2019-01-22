@@ -16,7 +16,7 @@ class Polygon extends Deq implements Figure {
         }
         p = R2Point.distance(a, b) + R2Point.distance(b, c) + R2Point.distance(c, a);
         s = Math.abs(R2Point.area(a, b, c));
-        task = Math.pow(R2Point.distance(taskPoint, a), 2) + Math.pow(R2Point.distance(taskPoint, b), 2) + Math.pow(R2Point.distance(taskPoint, c), 2);
+        task = R2Point.distance(taskPoint, a) + R2Point.distance(taskPoint, b) + R2Point.distance(taskPoint, c);
         this.taskPoint = taskPoint;
     }
     private void grow(R2Point a, R2Point b, R2Point t) {
@@ -32,22 +32,22 @@ class Polygon extends Deq implements Figure {
         if (i > 0) {
             R2Point x;
             grow(back(), front(), t);
-            this.task += Math.pow(R2Point.distance(taskPoint, t), 2);
+            this.task += R2Point.distance(taskPoint, t);
             for (x = popFront(); t.light(x, front()); x = popFront()) {
                 grow(x, front(), t);
-                this.task -= Math.pow(R2Point.distance(taskPoint, x), 2);
+                this.task -= R2Point.distance(taskPoint, x);
             }
             pushFront(x);
             //this.task += Math.pow(R2Point.distance(taskPoint, front()), 2);
             for (x = popBack(); t.light(back(), x); x = popBack()) {
                 grow(back(), x, t);
-                this.task -= Math.pow(R2Point.distance(taskPoint, x), 2);
+                this.task -= R2Point.distance(taskPoint, x);
             }
             pushBack(x);
             //this.task += Math.pow(R2Point.distance(taskPoint, back()), 2);
             p += R2Point.distance(back(), t) + R2Point.distance(t, front());
             pushFront(t);
-            this.task += Math.pow(R2Point.distance(taskPoint, front()), 2);
+            this.task += R2Point.distance(taskPoint, front());
         }
         return this;
     }
